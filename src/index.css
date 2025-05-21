@@ -252,7 +252,7 @@
 }
 
 .glass-card {
-  @apply backdrop-blur-md bg-white/80 dark:bg-sidebar-background/80 border border-gold-100 dark:border-sidebar-border shadow-xl;
+  @apply backdrop-blur-md bg-white/80 dark:bg-sidebar/80 border border-gold-100 dark:border-sidebar-border shadow-xl;
 }
 
 .button-shine {
@@ -346,7 +346,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gold-50 dark:bg-sidebar-background rounded-full;
+  @apply bg-gold-50 dark:bg-sidebar rounded-full;
 }
 
 ::-webkit-scrollbar-thumb {
