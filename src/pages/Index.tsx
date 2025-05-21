@@ -21,7 +21,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen background-animate bg-gradient-to-br from-gold-50 to-white dark:from-sidebar-background dark:to-sidebar flex flex-col animate-fade-in">
+    <div className="min-h-screen background-animate bg-gradient-to-br from-gold-50 to-white dark:from-sidebar dark:to-sidebar flex flex-col animate-fade-in">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 opacity-20 dark:opacity-10">
           <div className="absolute top-[10%] left-[10%] w-[40%] h-[30%] bg-gold-300 dark:bg-gold-500 rounded-full mix-blend-multiply filter blur-[80px] animate-float-slow"></div>
