@@ -47,7 +47,7 @@ const PropertyList: React.FC<PropertyListProps> = ({ properties, onSelectPropert
       {properties.map((property) => (
         <Card
           key={property.id}
-          className="property-card overflow-hidden"
+          className="property-card overflow-hidden border-gold-100"
           onClick={() => onSelectProperty && onSelectProperty(property)}
         >
           <div className="h-40 relative">
@@ -68,7 +68,7 @@ const PropertyList: React.FC<PropertyListProps> = ({ properties, onSelectPropert
             </div>
           </div>
           <CardContent className="pt-4">
-            <h3 className="text-lg font-semibold mb-1">{property.address}</h3>
+            <h3 className="text-lg font-semibold mb-1 text-gold-800">{property.address}</h3>
             <p className="text-sm text-muted-foreground mb-2">
               {property.city} · {property.builtYear} · {property.size}m²
             </p>
@@ -83,7 +83,7 @@ const PropertyList: React.FC<PropertyListProps> = ({ properties, onSelectPropert
               <Badge variant="outline" className={getModelBadge(property.developmentModel)}>
                 {property.developmentModel.charAt(0).toUpperCase() + property.developmentModel.slice(1)}
               </Badge>
-              <Badge variant="outline" className="bg-gray-100 text-gray-800">
+              <Badge variant="outline" className="bg-gold-100 text-gold-800 border-gold-200">
                 {property.capRate.toFixed(1)}% Cap Rate
               </Badge>
             </div>

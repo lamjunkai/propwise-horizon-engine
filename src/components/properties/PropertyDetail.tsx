@@ -24,7 +24,7 @@ const PropertyDetail: React.FC<PropertyDetailProps> = ({ property, onClose }) =>
   };
 
   return (
-    <Card className="animate-fade-in w-full max-w-3xl mx-auto">
+    <Card className="animate-fade-in w-full max-w-3xl mx-auto border-gold-100">
       <CardHeader className="relative">
         <div className="absolute top-4 right-4">
           <button
@@ -56,7 +56,7 @@ const PropertyDetail: React.FC<PropertyDetailProps> = ({ property, onClose }) =>
               : "REVIEW"}
           </Badge>
         </div>
-        <CardTitle className="text-2xl">{property.address}</CardTitle>
+        <CardTitle className="text-2xl text-gold-800">{property.address}</CardTitle>
         <div className="text-sm text-muted-foreground">
           {property.city} · Built {property.builtYear} · {property.size}m²
         </div>
@@ -77,36 +77,40 @@ const PropertyDetail: React.FC<PropertyDetailProps> = ({ property, onClose }) =>
             <div>
               <h3 className="text-sm font-medium text-muted-foreground mb-1">Development Score</h3>
               <div className="flex items-center gap-2">
-                <Progress value={property.developmentScore} className="h-2" />
-                <span className="text-sm font-medium">{property.developmentScore}/100</span>
+                <Progress value={property.developmentScore} className="h-2 bg-gold-100" 
+                  style={{
+                    "--progress-background": property.developmentScore >= 80 ? "#22c55e" :
+                      property.developmentScore >= 60 ? "#f59e0b" : "#ef4444"
+                  } as React.CSSProperties}/>
+                <span className="text-sm font-medium text-gold-800">{property.developmentScore}/100</span>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground">Cap Rate</h3>
-                <p className="text-lg font-semibold">{property.capRate.toFixed(1)}%</p>
+                <p className="text-lg font-semibold text-gold-800">{property.capRate.toFixed(1)}%</p>
               </div>
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground">ROI</h3>
-                <p className="text-lg font-semibold">{property.roi.toFixed(1)}%</p>
+                <p className="text-lg font-semibold text-gold-800">{property.roi.toFixed(1)}%</p>
               </div>
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground">Projected IRR</h3>
-                <p className="text-lg font-semibold">{property.projectedIrr.toFixed(1)}%</p>
+                <p className="text-lg font-semibold text-gold-800">{property.projectedIrr.toFixed(1)}%</p>
               </div>
               <div>
                 <h3 className="text-sm font-medium text-muted-foreground">Model</h3>
-                <p className="text-lg font-semibold capitalize">{property.developmentModel}</p>
+                <p className="text-lg font-semibold capitalize text-gold-800">{property.developmentModel}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <Separator />
+        <Separator className="border-gold-100" />
 
         <div>
-          <h3 className="font-medium mb-2">Features</h3>
+          <h3 className="font-medium mb-2 text-gold-800">Features</h3>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <div className="flex items-center gap-2">
               <span
@@ -131,10 +135,10 @@ const PropertyDetail: React.FC<PropertyDetailProps> = ({ property, onClose }) =>
           </div>
         </div>
 
-        <Separator />
+        <Separator className="border-gold-100" />
 
         <div>
-          <h3 className="font-medium mb-2">Analysis Summary</h3>
+          <h3 className="font-medium mb-2 text-gold-800">Analysis Summary</h3>
           <p className="text-sm text-muted-foreground">{property.summaryText}</p>
         </div>
       </CardContent>

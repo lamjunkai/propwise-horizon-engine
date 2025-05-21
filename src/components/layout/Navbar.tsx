@@ -1,38 +1,39 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+    <header className="bg-white border-b border-gold-100 sticky top-0 z-10 shadow-sm">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="bg-propwise-800 text-white p-2 rounded">
+          <div className="bg-gold-500 text-white p-2 rounded">
             <span className="font-bold text-lg">PW</span>
           </div>
-          <h1 className="text-xl font-semibold text-propwise-800">
-            PropWise <span className="text-propwise-700">Horizon Engine</span>
+          <h1 className="text-xl font-semibold text-gold-800">
+            PropWise <span className="text-gold-600">Horizon Engine</span>
           </h1>
         </div>
         <nav className="hidden md:flex items-center gap-6">
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-primary">
+          <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-gold-600 transition-colors">
             Dashboard
-          </a>
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-primary">
+          </Link>
+          <Link to="/properties" className="text-sm font-medium text-muted-foreground hover:text-gold-600 transition-colors">
             Properties
-          </a>
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-primary">
+          </Link>
+          <Link to="/analytics" className="text-sm font-medium text-muted-foreground hover:text-gold-600 transition-colors">
             Analytics
-          </a>
-          <a href="#" className="text-sm font-medium text-muted-foreground hover:text-primary">
+          </Link>
+          <Link to="/notifications" className="text-sm font-medium text-muted-foreground hover:text-gold-600 transition-colors">
             Notifications
-          </a>
+          </Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" className="border-gold-200 hover:bg-gold-50 hover:text-gold-700">
             Login
           </Button>
-          <Button size="sm">
+          <Button size="sm" className="bg-gold-500 hover:bg-gold-600 text-white">
             Sign Up
           </Button>
         </div>
