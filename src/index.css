@@ -104,7 +104,7 @@
 }
 
 .metric-card {
-  @apply bg-white rounded-lg shadow p-4 border border-gold-100;
+  @apply bg-white rounded-lg shadow p-4 border border-gold-100 transition-all duration-300 hover:shadow-md hover:border-gold-300;
 }
 
 .animate-fade-in {
@@ -128,4 +128,78 @@
 
 .card-gradient {
   @apply bg-gradient-to-br from-card to-gold-50/30 backdrop-blur-sm;
+}
+
+/* Add more animations and effects */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(240, 180, 41, 0.6);
+}
+
+.glass-card {
+  @apply backdrop-blur-sm bg-white/90 border border-gold-100;
+}
+
+.button-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
 }
