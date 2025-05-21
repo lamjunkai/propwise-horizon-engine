@@ -35,6 +35,9 @@
 
     --radius: 0.5rem;
 
+    --mouse-x: 0;
+    --mouse-y: 0;
+
     --sidebar-background: 40 60% 15%;
     --sidebar-foreground: 45 70% 90%;
     --sidebar-primary: 43 100% 56%;
@@ -91,7 +94,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
 }
 
@@ -100,21 +103,21 @@
 }
 
 .property-card {
-  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-2 hover:rotate-[0.5deg];
 }
 
 .metric-card {
-  @apply bg-white rounded-lg shadow p-4 border border-gold-100 transition-all duration-300 hover:shadow-md hover:border-gold-300;
+  @apply bg-white dark:bg-card rounded-lg shadow-md p-4 border border-gold-100 dark:border-sidebar-border transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:rotate-[0.5deg] hover:border-gold-300 dark:hover:border-gold-700;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -122,12 +125,32 @@
   }
 }
 
+.background-animate {
+  background-size: 400%;
+  animation: gradient 15s ease infinite;
+  background-position: 
+    calc((var(--mouse-x, 0) * 100%) + 50%)
+    calc((var(--mouse-y, 0) * 100%) + 50%);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .gold-gradient {
-  @apply bg-gradient-to-r from-gold-400 to-gold-600;
+  @apply bg-gradient-to-r from-gold-400 to-gold-600 hover:bg-gradient-to-l transition-all duration-500;
 }
 
 .card-gradient {
-  @apply bg-gradient-to-br from-card to-gold-50/30 backdrop-blur-sm;
+  @apply bg-gradient-to-br from-card to-gold-50/30 dark:from-card dark:to-sidebar-background/80 backdrop-blur-sm transition-all duration-500;
 }
 
 /* Add more animations and effects */
@@ -144,6 +167,19 @@
   }
 }
 
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
 .animate-bounce-subtle {
   animation: bounce-subtle 2s infinite;
 }
@@ -153,24 +189,71 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 12s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(-20px) scale(1);
+  }
+  50% {
+    transform: translateY(0) scale(1.05);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
 .hover-scale {
-  @apply transition-transform duration-200 hover:scale-105;
+  @apply transition-transform duration-300 hover:scale-110;
+}
+
+.hover-rotate {
+  @apply transition-transform duration-300 hover:rotate-3;
 }
 
 .hover-glow {
-  @apply transition-all duration-300;
+  @apply transition-all duration-500;
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 15px rgba(240, 180, 41, 0.6);
+  box-shadow: 0 0 25px rgba(240, 180, 41, 0.8);
 }
 
 .glass-card {
-  @apply backdrop-blur-sm bg-white/90 border border-gold-100;
+  @apply backdrop-blur-md bg-white/80 dark:bg-sidebar-background/80 border border-gold-100 dark:border-sidebar-border shadow-xl;
 }
 
 .button-shine {
@@ -188,18 +271,85 @@
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
     rgba(255, 255, 255, 0) 100%
   );
   transform: rotate(30deg);
-  animation: shine 3s infinite;
+  animation: shine 5s infinite;
 }
 
 @keyframes shine {
   0% {
-    transform: translateX(-100%) rotate(30deg);
+    transform: translateX(-150%) rotate(30deg);
+  }
+  15% {
+    transform: translateX(100%) rotate(30deg);
   }
   100% {
     transform: translateX(100%) rotate(30deg);
   }
+}
+
+/* 3D transform effects */
+.transform-3d {
+  @apply transition-all duration-300;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.transform-3d:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Ripple effect for clickable items */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1);
+  transition: all 0.9s;
+}
+
+.ripple-effect:active::after {
+  opacity: 0.3;
+  transform: scale(100);
+  transition: all 0s;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gold-50 dark:bg-sidebar-background rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gold-300 dark:bg-gold-700 rounded-full hover:bg-gold-400 dark:hover:bg-gold-600 transition-colors duration-300;
 }
