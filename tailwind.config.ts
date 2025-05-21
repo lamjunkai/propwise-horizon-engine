@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,7 +53,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
+					DEFAULT: 'hsl(var(--sidebar))',
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
 					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
@@ -64,28 +63,28 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				propwise: {
-					50: '#fff9e6',
-					100: '#fff0bf',
-					200: '#ffe386',
-					300: '#ffd24d',
-					400: '#ffc220',
-					500: '#ffb300',
-					600: '#e69900',
-					700: '#cc7a00',
-					800: '#b35c00',
-					900: '#994700',
+					50: '#fff8e0',
+					100: '#ffefad',
+					200: '#ffe270',
+					300: '#ffd433',
+					400: '#ffc300',
+					500: '#ffaa00',
+					600: '#e68a00',
+					700: '#cc6d00',
+					800: '#b35000',
+					900: '#994200',
 				},
 				gold: {
 					50: '#fefae0',
-					100: '#fff1c2',
-					200: '#ffe085',
-					300: '#ffd04d',
-					400: '#ffc926',
-					500: '#f0b429',
-					600: '#d69a00',
-					700: '#b38000',
-					800: '#8c6400',
-					900: '#704d00',
+					100: '#fff0b8',
+					200: '#ffe066',
+					300: '#ffd60a',
+					400: '#ffc300',
+					500: '#e6a800',
+					600: '#cc7c00',
+					700: '#a65a00',
+					800: '#8c4500',
+					900: '#703a00',
 				}
 			},
 			borderRadius: {
