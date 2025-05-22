@@ -34,13 +34,14 @@ const PropertyMap: React.FC<{ properties: Property[]; onSelectProperty?: (proper
       <div className="absolute inset-0 bg-gray-100" ref={mapRef}>
         <div className="w-full h-full bg-propwise-50 flex items-center justify-center">
           <div className="text-center p-4">
-            <p className="text-muted-foreground mb-2">Map Visualization Placeholder</p>
-            <p className="text-xs text-muted-foreground">Connect Mapbox for live property visualization</p>
+            <p className="text-muted-foreground mb-2" style={{ color: "black" }}>Map Visualization Placeholder</p>
+            <p className="text-xs text-muted-foreground" style={{ color: "black" }}>Connect Mapbox for live property visualization</p>
             
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
               {properties.map((property) => (
                 <div
                   key={property.id}
+                  style={{ border: "1px solid black" }}
                   className="relative p-3 bg-white rounded-md shadow-sm cursor-pointer hover:shadow-md transition-shadow"
                   onClick={() => {
                     setActiveProperty(property);
@@ -52,8 +53,8 @@ const PropertyMap: React.FC<{ properties: Property[]; onSelectProperty?: (proper
                       property.developmentScore
                     )}`}
                   ></div>
-                  <div className="text-xs font-medium truncate">{property.address}</div>
-                  <div className="text-xs text-muted-foreground">
+                  <div className="text-xs font-medium truncate" style={{ color: "black" }}>{property.address}</div>
+                  <div className="text-xs text-muted-foreground" style={{ color: "black" }}>
                     {property.size}m² · {property.capRate.toFixed(1)}%
                   </div>
                 </div>
