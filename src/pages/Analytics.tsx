@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -45,9 +44,16 @@ const AnalyticsPage = () => {
   const COLORS = ['#FFD700', '#FFAA00', '#FF8000', '#FF5500', '#FF0000'];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gold-50 to-white flex flex-col">
+    <div className="min-h-screen background-animate dark:from-sidebar dark:via-background dark:to-sidebar/80 flex flex-col animate-fade-in">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 dark:opacity-20">
+          <div className="absolute top-[10%] left-[10%] w-[40%] h-[30%] dark:bg-gold-500 rounded-full mix-blend-multiply filter blur-[80px] animate-float-slow"></div>
+          <div className="absolute bottom-[10%] right-[10%] w-[60%] h-[40%] dark:bg-propwise-500 rounded-full mix-blend-multiply filter blur-[100px] animate-float"></div>
+          <div className="absolute top-[40%] right-[20%] w-[30%] h-[30%] dark:bg-gold-600 rounded-full mix-blend-multiply filter blur-[70px] animate-float-reverse"></div>
+        </div>
+      </div>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <div className="container py-8">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-2xl font-bold text-gold-800">
