@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,19 +12,9 @@ import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-// Initialize theme based on localStorage or system preference
-const initializeTheme = () => {
-  if (localStorage.theme === 'dark' || 
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-};
-
 const App = () => {
   useEffect(() => {
-    initializeTheme();
+    document.documentElement.classList.add('dark');
   }, []);
 
   return (

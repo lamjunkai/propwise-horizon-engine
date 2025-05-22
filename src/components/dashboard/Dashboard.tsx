@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
       <div className="flex items-center justify-between mb-6 animate-fade-in">
         <div className="flex items-center">
           <h1 className="text-2xl font-bold text-gold-800 dark:text-gold-300 mr-2">
-            Property Development Analysis 
+            Property Development Analysis Dashboard
           </h1>
           {isLoading && (
             <RotateCw className="h-5 w-5 text-gold-500 animate-spin-slow" />
